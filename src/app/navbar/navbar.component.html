@@ -1,0 +1,75 @@
+<div class="navbar-container bg-black">
+  <nav
+    [ngClass]="{
+      'container flex justify-between mx-auto py-10 px-6 border-b-2 border-white border-opacity-20 lg:px-0': true,
+      'w-screen h-screen lg:w-auto lg:h-auto px-8': isNavOpen
+    }"
+  >
+    <div
+      [ngClass]="{
+        'flex items-start flex-grow md:justify-start lg:justify-between': true,
+        'justify-between': !isNavOpen,
+        'flex-col lg:flex-row lg:items-center': isNavOpen
+      }"
+    >
+      <fa-icon
+        [icon]="faBars"
+        (click)="handleNav()"
+        [ngClass]="{
+          'w-6 h-6 flex items-center justify-center text-white lg:hidden': true,
+          hidden: isNavOpen
+        }"
+      ></fa-icon>
+
+      <fa-icon
+        [icon]="faXmark"
+        (click)="handleNav()"
+        [ngClass]="{
+          'w-6 h-6 flex items-center justify-center text-white': true,
+          'lg:hidden': isNavOpen,
+          hidden: !isNavOpen
+        }"
+      ></fa-icon>
+
+      <ul
+        [ngClass]="{
+          'text-white gap-10 font-bold lg:flex lg:order-2': true,
+          'flex flex-col mt-10 lg:flex-row lg:mt-0': isNavOpen,
+          hidden: !isNavOpen
+        }"
+      >
+        <li>
+          <a href="/" (click)="handleNav()"> Home </a>
+        </li>
+        <li>
+          <a href="/category/headphones" (click)="handleNav()"> Headphones </a>
+        </li>
+        <li>
+          <a href="/category/speakers" (click)="handleNav()"> Speakers </a>
+        </li>
+        <li>
+          <a href="/category/earphones" (click)="handleNav()"> Earphones </a>
+        </li>
+        <li>
+          <a href="/signin" (click)="handleNav()"> Sign in </a>
+        </li>
+      </ul>
+
+      <img
+        src="../../assets/images/audiophileLogo.svg"
+        [ngClass]="{
+          'md:ml-10 lg:ml-0 lg:order-1': true,
+          'hidden lg:block': isNavOpen
+        }"
+      />
+    </div>
+    <div
+      [ngClass]="{
+        'flex flex-grow justify-end items-start lg:order-3': true,
+        'hidden lg:flex': isNavOpen
+      }"
+    >
+      <img src="../../assets/icons/shoppingCart.svg" class="w-5" />
+    </div>
+  </nav>
+</div>
