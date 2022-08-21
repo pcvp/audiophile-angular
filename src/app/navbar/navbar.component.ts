@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
   faXmark = faXmark;
 
   handleNav() {
-    // console.log(this.isNavOpen);
     this.isNavOpen = !this.isNavOpen;
   }
 }
