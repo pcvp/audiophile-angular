@@ -71,11 +71,13 @@
     </div>
     <div
       [ngClass]="{
-        'flex flex-grow justify-end items-start lg:order-3': true,
+        'flex flex-grow justify-end items-start lg:order-3 cursor-pointer': true,
         'hidden lg:flex': isNavOpen
       }"
     >
-      <img src="../../assets/icons/shoppingCart.svg" class="w-5" />
+      <a routerLink="cart">
+        <img src="../../assets/icons/shoppingCart.svg" class="w-5" />
+      </a>
     </div>
   </nav>
 </div>
