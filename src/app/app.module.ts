@@ -10,6 +10,8 @@ import { CategoryComponent } from './category/category.component';
 import { SigninComponent } from './signin/signin.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,7 +31,7 @@ const appRoutes: Routes = [
     CartComponent,
     ProductComponent,
   ],
-  imports: [BrowserModule, FontAwesomeModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, FontAwesomeModule, RouterModule.forRoot(appRoutes), GraphQLModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

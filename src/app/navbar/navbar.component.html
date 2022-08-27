@@ -37,27 +37,12 @@
           'flex flex-col mt-10 lg:flex-row lg:mt-0': isNavOpen,
           hidden: !isNavOpen
         }"
+        *ngFor="let item of navbarItems | async"
       >
         <li>
-          <a routerLink="/" (click)="handleNav()"> Home </a>
-        </li>
-        <li>
-          <a routerLink="/category/headphones" (click)="handleNav()">
-            Headphones
+          <a routerLink="{{ item.redirectTo }}" (click)="handleNav()">
+            {{ item.displayText }}
           </a>
-        </li>
-        <li>
-          <a routerLink="/category/speakers" (click)="handleNav()">
-            Speakers
-          </a>
-        </li>
-        <li>
-          <a routerLink="/category/earphones" (click)="handleNav()">
-            Earphones
-          </a>
-        </li>
-        <li>
-          <a routerLink="/signin" (click)="handleNav()"> Sign in </a>
         </li>
       </ul>
 

@@ -1,5 +1,8 @@
+import { NavbarItem, NavbarItemsGQL } from './../graphql/generated';
 import { Component, OnInit } from '@angular/core';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { NavbarItemsQuery } from '../graphql/generated';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +10,12 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+  navbarItems: Observable<NavbarItemsQuery['navbarItems']>;
+  constructor(navbarItemsGQL: NavbarItemsGQL) {
+    this.navbarItems = navbarItemsGQL
+      .watch()
+      .valueChanges.pipe(map((result) => result.data.navbarItems));
+  }
 
   ngOnInit(): void {}
 
